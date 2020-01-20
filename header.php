@@ -11,6 +11,10 @@
 	<div id="header">
 		<h1><a href="index.html">Belle &amp; Carrie <span>Rehabilitation Yoga</span></a></h1>
 		<ul id="navigation">
+		<?php wp_nav_menu(['theme_location' => 'menu', 'container' => false]); ?>
+	</ul>
+		<!---
+		<ul id="navigation">
 			<li class="current">
 				<a href="<?php bloginfo('template_url' ) ?>/index.html">Home</a>
 			</li>
@@ -29,7 +33,8 @@
 				<a href="<?php bloginfo('template_url' ) ?>/contact.html">Contact</a>
 			</li>
 			<li>
-				<a href="<?php bloginfo('template_url' ) ?>/blog.html">Blog</a>
+				<a href="<?php bloginfo('template_url' ) ?>/blog.php">Blog</a>
 			</li>
 		</ul>
+	-->
 	</div>
