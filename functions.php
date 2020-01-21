@@ -19,5 +19,16 @@ add_action('wp_enqueue_scripts', 'load_style_script');
  */
 register_nav_menu( 'menu', 'Menu' );
 
+/**
+ * Чтобы можно было установить миниатюру ( изображение ) поста
+ */
+if (!function_exists('mytheme_setup')):
+    function mytheme_setup(){
+        add_theme_support('post-thumbnails');
+        set_post_thumbnail_size(1200, 9999);
+    }
+endif;
+add_action('after_setup_theme', 'mytheme_setup');
+
 
 ?>

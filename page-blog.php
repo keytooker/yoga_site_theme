@@ -1,32 +1,51 @@
+<?php 
+/*
+    Template Name: Blog
+*/
+?>
 <?php get_header(); ?>
 	<div id="body">
 		<h2>Blog</h2>
 		<ul class="blog">
-			<li>
-				<img src="images/group-yoga.jpg" alt="yoga in group">
-				<h3><a href="singlepost.html">Summer Yoga Classes</a></h3>
-				<span>April 7, 2023 </span>
-				<p>
-					Duis ultrices tortor non felis convallis bibendum. Maecenas diam velit, sollicitudin at imperdiet ac, consectetur non nibh. Etiam eget dapibus nulla. Nulla placerat mauris ut elit placerat luctus. Aliquam porttitor leo non nisl scelerisque sollicitudin.
-				</p>
-			</li>
-			<li>
-				<img src="images/yoga-concentrating.jpg" alt="yoga concentrating">
-				<h3><a href="singlepost.html">Inner peace</a></h3>
-				<span>April 6, 2023 </span>
-				<p>
-					Nunc sit amet dapibus est, sit amet varius risus. Donec luctus lacinia mauris, at feugiat ligula facilisis ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed id ligula consectetur, iaculis dolor vitae, gravida mauris.
-				</p>
-			</li>
-			<li>
-				<img src="images/lying-yoga.jpg" alt="yoga lying down legs in the air">
-				<h3><a href="singlepost.html">A Strong and Flexible Body</a></h3>
-				<span>April 5, 2023 </span>
-				<p>
-					In felis ante, aliquet sit amet venenatis at, feugiat sed leo. Fusce pretium, velit in luctus ornare, elit lorem ultrices tortor, sed consectetur orci risus mollis ante. Cras ut aliquam nulla. Aliquam convallis sapien quis cursus condimentum.
-				</p>
-			</li>
-		</ul>
+ 
+        <?php 
+        $temp = $wp_query; 
+        $wp_query= null;
+        $wp_query = new WP_Query(); 
+        $wp_query->query('showposts=3' . '&paged=' . $paged);
+        while ($wp_query->have_posts()) : 
+        	$wp_query->the_post(); ?>
+        	<li>
+ 			<?php the_post_thumbnail(); ?>
+        	<h3>
+        		<a href="<?php the_permalink(); ?>" title="Read more"><?php the_title(); ?></a>
+        	</h3>
+        	<span><?php the_time('F j, Y'); ?></span>
+        	<p>
+        		<?php the_excerpt(); ?>
+        	</p>
+        	</li>
+ 
+        <?php endwhile; ?>
+ 
+        <?php if ($paged > 1) { ?>
+ 
+	        <nav id="nav-posts">
+	            <div class="prev"><?php next_posts_link('&laquo; Previous Posts'); ?></div>
+	            <div class="next"><?php previous_posts_link('Newer Posts &raquo;'); ?></div>
+	        </nav>
+	 
+	        <?php } else { ?>
+	 
+	        <nav id="nav-posts">
+	            <div class="prev"><?php next_posts_link('&laquo; Previous Posts'); ?></div>
+	        </nav>
+	 
+	        <?php } ?>
+ 
+        <?php wp_reset_postdata(); ?>
+ 
+    </ul>
 	</div>
 	<?php 
 	get_footer(); 
