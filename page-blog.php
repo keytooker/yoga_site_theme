@@ -3,19 +3,21 @@
     Template Name: Blog
 */
 ?>
-<?php get_header(); ?>
-	<div id="body">
-		<h2>Blog</h2>
-		<ul class="blog">
+
+<?php 
+	get_header(); 
+?>
+
+<div id="body">
+<h2>Blog</h2>
+<ul class="blog">
  
-        <?php 
-        $temp = $wp_query; 
-        $wp_query= null;
-        $wp_query = new WP_Query(); 
-        $wp_query->query('showposts=3' . '&paged=' . $paged);
-        while ($wp_query->have_posts()) : 
-        	$wp_query->the_post(); ?>
-        	<li>
+<?php 
+    $wp_query = new WP_Query(); 
+    $wp_query->query('showposts=3' . '&paged=' . $paged);
+    while ($wp_query->have_posts()) : 
+        $wp_query->the_post(); ?>
+        <li>
  			<?php the_post_thumbnail(); ?>
         	<h3>
         		<a href="<?php the_permalink(); ?>" title="Read more"><?php the_title(); ?></a>
@@ -24,7 +26,7 @@
         	<p>
         		<?php the_excerpt(); ?>
         	</p>
-        	</li>
+        </li>
  
         <?php endwhile; ?>
  
@@ -41,12 +43,13 @@
 	            <div class="prev"><?php next_posts_link('&laquo; Previous Posts'); ?></div>
 	        </nav>
 	 
-	        <?php } ?>
+	    <?php } ?>
  
         <?php wp_reset_postdata(); ?>
  
     </ul>
 	</div>
-	<?php 
+
+<?php 
 	get_footer(); 
-	?>
+?>

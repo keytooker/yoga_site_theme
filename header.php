@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div id="header">
-		<h1><a href="index.html">Belle &amp; Carrie <span>Rehabilitation Yoga</span></a></h1>
+		<h1><a href="<?php get_home_url(); ?>">Belle &amp; Carrie <span>Rehabilitation Yoga</span></a></h1>
 		<ul id="navigation">
 		<?php wp_nav_menu(['theme_location' => 'menu', 'container' => false]); ?>
 	</ul>
