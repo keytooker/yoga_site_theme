@@ -6,7 +6,7 @@ function load_style_script()
 {
 	wp_enqueue_script('mobile', get_template_directory_uri() . '/js/mobile.js');
 	wp_enqueue_style('style', get_template_directory_uri() . '/style.css');
-	wp_enqueue_style('style', get_template_directory_uri() . '/css/mobile.css');
+	wp_enqueue_style('stylemob', get_template_directory_uri() . '/css/mobile.css');
 }
 
 /**
