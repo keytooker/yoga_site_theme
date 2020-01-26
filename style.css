@@ -70,18 +70,17 @@ p a:hover {
 	font-size: 26px;
 	text-transform: uppercase;
 }
-#header ul#navigation {
+ul.menu {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 	text-align: center;
 }
-#header ul#navigation li {
+ul.menu li {
 	display: inline;
 	line-height: 30px;
 	position: relative;
-}
-#header ul#navigation li a {
+}ul.menu li a {
 	color: #b6d8cf;
 	font-size: 18px;
 	padding: 0 46px;
@@ -89,14 +88,14 @@ p a:hover {
 	text-decoration: none;
 	text-transform: uppercase;
 }
-#header ul#navigation li a:hover,
-#header ul#navigation li.current ul li a:hover {
+ul.menu li a:hover,
+ul.menu li.current-menu-item ul li a:hover {
 	color: #d3a3ff;
 }
-#header ul#navigation li.current a {
+ul.menu li.current-menu-item a {
 	color: #99fa99;
 }
-#header ul#navigation li ul {
+ul.menu li ul {
 	display: none;
 	left: 0;
 	list-style: none outside none;
@@ -105,19 +104,19 @@ p a:hover {
 	position: absolute;
 	top: 12px;
 }
-#header ul#navigation li:hover ul {
+ul.menu li:hover ul {
 	display: block;
 }
-#header ul#navigation li ul li {
+ul.menu li ul li {
 	background: #077054;
 	display: block;
 	height: 46px;
 	line-height: 46px;
 }
-#header ul#navigation li ul li a {
+ul.menu li ul li a {
 	padding: 0 20px;
 }
-#header ul#navigation li.current ul li a {
+ul.menu li.current-menu-item ul li a {
 	color: #b6d8cf;
 }
 #body {
